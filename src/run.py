@@ -22,24 +22,18 @@ def write_lines(src, name):
 
 
 if __name__ == '__main__':
-    input_path = sys.argv[1]
+    input_path = 'examples/test1.txt'
+    text = read_file(input_path)
 
-    print(input_path)
+    rps = RandomPersonSwapper()
 
-    try:
-        text = read_file(input_path)
+    new_text, pairs = rps.make_replacement(text)
 
-        rps = RandomPersonSwapper()
+    write_file(new_text, 'examples/test_out.txt')
+    write_lines(pairs, 'examples/rules.txt')
 
-        new_text, pairs = rps.make_replacement(text)
-
-        write_file(new_text, 'examples/test_out.txt')
-        write_lines(pairs, 'examples/rules.txt')
-
-        print(pairs)
-        print(new_text)
-    except:
-        print('Unable to read file')
+    print(pairs)
+    print(new_text)
 
 
 
