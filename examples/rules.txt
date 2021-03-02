@@ -1,0 +1,2 @@
+['Anna Mironova', 'Riccardo Tisci']
+['Christopher Bailey', 'Christine Lagarde']
