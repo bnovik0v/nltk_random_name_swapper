@@ -22,15 +22,16 @@ def write_lines(src, name):
 
 
 if __name__ == '__main__':
-    input_path = 'examples/test1.txt'
+    input_path = 'inout/' + sys.argv[1]
+
     text = read_file(input_path)
 
     rps = RandomPersonSwapper()
 
     new_text, pairs = rps.make_replacement(text)
 
-    write_file(new_text, 'examples/test_out.txt')
-    write_lines(pairs, 'examples/rules.txt')
+    write_file(new_text, f'inout/{sys.argv[1]}_out.txt')
+    write_lines(pairs, f'inout/{sys.argv[1]}_rules.txt')
 
     print(pairs)
     print(new_text)

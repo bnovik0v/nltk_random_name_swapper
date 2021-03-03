@@ -22,7 +22,6 @@ RUN python -c "import nltk; nltk.download('punkt')"
 COPY src .
 COPY examples ./examples
 
+ENV environment="examples/test1.txt"
 
-ENV environment examples/test1.txt
-
-CMD [ "python", "./run.py", "${environment}" ]
+CMD [ "/bin/sh", "-c", "python ./run.py $environment" ]
