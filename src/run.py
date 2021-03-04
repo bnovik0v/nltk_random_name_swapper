@@ -1,5 +1,5 @@
-import os
 import sys
+
 from random_person_swapper import RandomPersonSwapper
 
 
@@ -30,7 +30,7 @@ if __name__ == '__main__':
 
     # Use RandomPersonSwapper to get transformed text and rules
     rps = RandomPersonSwapper()
-    new_text, rules = rps.make_replacement(text)
+    new_text, rules = rps.make_swapping(text)
 
     # Write the results in output files
     write_file(new_text, f'{inout_path}out_{file_name}')

@@ -1,25 +1,46 @@
-import re
+# nltk library
 import nltk
 from nltk.tag import StanfordNERTagger
+
+# additional libraries
 import numpy as np
+import re
 
 
 class RandomPersonSwapper:
+    """ RandomPersonSwapper make random swaps in text
+
+    Methods
+    -------
+    make_swapping(text)
+        make random swaps in text
+    """
+
     def __init__(self):
+        # set StanfordNERTagger files paths
         self.stanford_jar_path = 'stanford-corenlp/stanford-ner-4.2.0.jar'
         self.stanford_model_path = 'stanford-corenlp/classifiers/english.all.3class.distsim.crf.ser.gz'
 
+        # init StanfordNERTagger model
         self.ner_tagger = StanfordNERTagger(self.stanford_model_path,
                                             self.stanford_jar_path,
                                             encoding='utf8')
 
-    def __get_persons(self, text):
+    def __get_persons_from_text(self, text):
+        """ Extract persons from text
+
+        :param text: text
+        :return: persons
+        """
+
+        # Get tagged words from text
         words = nltk.word_tokenize(text)
         tagged_words = self.ner_tagger.tag(words)
 
+        # Gather names that consist of few words
+        # e.g. ['Mike', 'Pearson'] -> ['Mike Pearson']
         persons = []
         is_last_person = False
-
         for entity, tag in tagged_words:
             if tag == 'PERSON':
                 if is_last_person == False:
@@ -32,26 +53,50 @@ class RandomPersonSwapper:
 
         return persons
 
-    def __make_pairs(self, persons):
+    def __make_rules_from_persons(self, persons):
+        """ Make random number of random rules from persons list
+
+        :param persons: list of persons
+        :return: return random rules
+        """
+
+        # Set max number of rules (half of the number of persons)
         max_n_rules = len(persons) // 2
+
+        # Get random number of rules to be generated (range: 0 - max_n_rules)
         n_rules = np.random.randint(max_n_rules + 1)
 
+        # Shuffle persons list
         np.random.shuffle(persons)
 
-        pairs = [[persons[i * 2], persons[i * 2 + 1]] for i in range(n_rules)]
+        # Gather pairs (rules) from persons list
+        rules = [[persons[i * 2], persons[i * 2 + 1]] for i in range(n_rules)]
 
-        return pairs
+        return rules
 
-    def __swap_persons(self, text, pairs):
-        for pair in pairs:
+    def __swap_persons_in_text(self, text, rules):
+        """ Swap persons in text using rules
+
+        :param text: text
+        :param rules: rules
+        :return: text with swaps
+        """
+
+        for pair in rules:
             text = re.sub(rf'{pair[0]}|{pair[1]}',
-                              lambda m: pair[0] if m.group() == pair[1] else pair[1], text)
+                          lambda m: pair[0] if m.group() == pair[1] else pair[1], text)
 
         return text
 
-    def make_replacement(self, text):
-        persons = self.__get_persons(text)
-        pairs = self.__make_pairs(persons)
-        new_text = self.__swap_persons(text, pairs)
+    def make_swapping(self, text):
+        """ Make random person swaps in text
 
-        return new_text, pairs
+        :param text: text
+        :returns: text with random swaps and rules (e.g. Person2 <-> Person5)
+        """
+
+        persons = self.__get_persons_from_text(text)
+        rules = self.__make_rules_from_persons(persons)
+        new_text = self.__swap_persons_in_text(text, rules)
+
+        return new_text, rules
