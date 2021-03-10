@@ -9,7 +9,7 @@ RandomPersonSwapper will make random Person swaps in your text.
 
 Run python file from root directory with absolute path to file
 
-```python src/run.py /path/to/file.txt```
+```python run.py /path/to/file.txt```
 
 ### Output
 
