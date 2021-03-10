@@ -27,7 +27,7 @@ Output will be placed in input file folder and looks like that:
 
 | Original | Output Text | List of Swap Rules |
 | --- | --- | --- |
-| Andrew. Phillip. Tom. Sam. Richard Dokkins. | Sam. Phillip. Tom. Andrew. Richard Dokkins. | ['Andrew', 'Sam']]
+| Andrew. Phillip. Tom. Sam. Richard Dokkins. | Andrew. Tom. Phillip. Richard Dokkins. Sam. | [['Tom', 'Phillip'], ['Sam', 'Richard Dokkins']]
 | Andrew. Phillip. Tom. Sam. Richard Dokkins. | Sam. Phillip. Richard Dokkins. Andrew. Tom. | [['Tom', 'Richard Dokkins'], ['Sam', 'Andrew']] |
 
 <table>
@@ -38,10 +38,10 @@ Output will be placed in input file folder and looks like that:
 </tr>
 <tr>
 <td>
-While in France, Christine Lagarde discussed
+While in France, <b>Christine Lagarde</b> discussed
 short-term stimulus efforts in a recent interview
 with the Wall Street Journal. While in France,
-Anna Mironova discussed short-term stimulus efforts
+<b>Anna Mironova</b> discussed short-term stimulus efforts
 in a recent interview with the Wall Street Journal.
 First up in London will be <b>Riccardo Tisci</b>, onetime
 Givenchy darling, favorite of Kardashian-Jenners everywhere,
@@ -49,25 +49,26 @@ who returns to the catwalk with men’s and women’s wear after
 a year and a half away, this time to reimagine Burberry after
 the departure of <b>Christopher Bailey</b>.
 <b>Barbara</b> wants to know how could you do it. It's alright.
-<b>Jane</b> was mistaken. Sandra. James is her lover.
+<b>Jane</b> was mistaken. <b>Sandra</b>. <b>James</b> is her lover.
 </td>
 <td>
-While in France, Christine Lagarde discussed 
-short-term stimulus efforts in a recent interview 
-with the Wall Street Journal. While in France, 
-Anna Mironova discussed short-term stimulus efforts 
-in a recent interview with the Wall Street Journal. 
-First up in London will be <b>Jane</b>, onetime Givenchy 
-darling, favorite of Kardashian-Jenners everywhere,
-who returns to the catwalk with men’s and women’s 
-wear after a year and a half away, this time to
-reimagine Burberry after the departure of <b>Barbara</b>.
-<b>Christopher Bailey</b> wants to know how could you 
-do it. It's alright. <b>Riccardo Tisci</b> was mistaken. 
-Sandra. James is her lover.
+While in France, <b>Sandra</b> discussed short-term stimulus
+efforts in a recent interview with the Wall Street
+Journal. While in France, <b>Barbara</b> discussed short-term
+stimulus efforts in a recent interview with the Wall 
+Street Journal. First up in London will be <b>Christopher
+Bailey</b>, onetime Givenchy darling, favorite of
+Kardashian-Jenners everywhere, who returns to the
+catwalk with men’s and women’s wear after a year
+and a half away, this time to reimagine Burberry
+after the departure of <b>Riccardo Tisci</b>.
+<b>Anna Mironova</b> wants to know how could you do
+it. It's alright. <b>James</b> was mistaken. <b>Christine
+Lagarde</b>. <b>Jane</b> is her lover.
+
 </td>
 <td>
-[['Jane', 'Riccardo Tisci'], ['Barbara', 'Christopher Bailey']]
+[['Christopher Bailey', 'Riccardo Tisci'], ['Jane', 'James'], ['Anna Mironova', 'Barbara'], ['Sandra', 'Christine Lagarde']]
 </td>
 </tr>
 </table>
