@@ -1,7 +1,7 @@
 import sys
 import os
 
-from random_person_swapper import RandomPersonSwapper
+from src.random_person_swapper import RandomPersonSwapper
 
 
 def read_file(name):
