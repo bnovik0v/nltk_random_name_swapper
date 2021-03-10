@@ -54,17 +54,14 @@ class RandomPersonSwapper:
         return persons
 
     def __make_rules_from_persons(self, persons):
-        """ Make random number of random rules from persons list
+        """ Make random rules from persons list
 
         :param persons: list of persons
         :return: return random rules
         """
 
-        # Set max number of rules (half of the number of persons)
-        max_n_rules = len(persons) // 2
-
-        # Get random number of rules to be generated (range: 0 - max_n_rules)
-        n_rules = np.random.randint(max_n_rules + 1)
+        # Set number of rules (half of the number of persons)
+        n_rules = len(persons) // 2
 
         # Shuffle persons list
         np.random.shuffle(persons)
