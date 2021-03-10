@@ -26,6 +26,12 @@ class RandomPersonSwapper:
                                             self.stanford_jar_path,
                                             encoding='utf8')
 
+        # download additional package for nltk
+        try:
+            nltk.data.find('tokenizers/punkt')
+        except LookupError:
+            nltk.download('punkt')
+
     def __get_persons_from_text(self, text):
         """ Extract persons from text
 
