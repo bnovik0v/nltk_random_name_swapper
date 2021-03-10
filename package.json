@@ -1,0 +1,22 @@
+{
+  "name": "name_replacer",
+  "version": "1.0.0",
+  "description": "RandomPersonSwapper will make random Person swaps in your text.",
+  "main": "run.sh",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexbrill/nltk_random_name_swapper.git"
+  },
+  "author": "alexbrill",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexbrill/nltk_random_name_swapper/issues"
+  },
+  "homepage": "https://github.com/alexbrill/nltk_random_name_swapper#readme"
+}
