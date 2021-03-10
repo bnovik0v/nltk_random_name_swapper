@@ -18,8 +18,8 @@ class RandomPersonSwapper:
 
     def __init__(self):
         # set StanfordNERTagger files paths
-        self.stanford_jar_path = 'stanford-corenlp/stanford-ner-4.2.0.jar'
-        self.stanford_model_path = 'stanford-corenlp/classifiers/english.all.3class.distsim.crf.ser.gz'
+        self.stanford_jar_path = './stanford-corenlp/stanford-ner-4.2.0.jar'
+        self.stanford_model_path = './stanford-corenlp/classifiers/english.all.3class.distsim.crf.ser.gz'
 
         # init StanfordNERTagger model
         self.ner_tagger = StanfordNERTagger(self.stanford_model_path,

@@ -1,1 +1,1 @@
-[['Christopher Bailey', 'Riccardo Tisci'], ['Jane', 'James'], ['Anna Mironova', 'Barbara'], ['Sandra', 'Christine Lagarde']]
+[['Christine Lagarde', 'Sandra'], ['Riccardo Tisci', 'Christopher Bailey'], ['Barbara', 'Anna Mironova'], ['Jane', 'James']]

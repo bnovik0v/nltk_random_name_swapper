@@ -4,15 +4,12 @@ RandomPersonSwapper will make random Person swaps in your text.
 
 
 
-## Bulid
-
-```docker build -t name_swapper . ```
 
 ## Start
 
-Run sh file with absolute path to file
+Run python file from root directory with absolute path to file
 
-```sh run.sh /path/to/file```
+```python src/run.py /path/to/file.txt```
 
 ### Output
 

@@ -1,4 +1,5 @@
 import sys
+import os
 
 from random_person_swapper import RandomPersonSwapper
 
@@ -18,14 +19,15 @@ def write_file(src, name):
 
 
 if __name__ == '__main__':
-    # Get input file name from command arg
-    file_name = sys.argv[1]
+    # Get input file path from command arg
+    abs_path = sys.argv[1]
 
-    # Set inout path
-    inout_path = 'inout/'
+    # Get inout path and file name
+    inout_path, file_name = os.path.split(abs_path)
+
 
     # Read text from input file
-    input_path = inout_path + file_name
+    input_path = inout_path + '/' + file_name
     text = read_file(input_path)
 
     # Use RandomPersonSwapper to get transformed text and rules
@@ -33,8 +35,8 @@ if __name__ == '__main__':
     new_text, rules = rps.make_swapping(text)
 
     # Write the results in output files
-    write_file(new_text, f'{inout_path}out_{file_name}')
-    write_file(rules, f'{inout_path}rules_{file_name}')
+    write_file(new_text, f'{inout_path}/out_{file_name}')
+    write_file(rules, f'{inout_path}/rules_{file_name}')
 
     # Output the results on screen
     print(rules)
