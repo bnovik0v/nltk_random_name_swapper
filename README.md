@@ -1,6 +1,6 @@
 # RandomPersonSwapper
 
-RandomPersonSwapper will make random Person swaps in your text. 
+RandomPersonSwapper swaps names in text randomly. 
 
 
 
@@ -16,12 +16,12 @@ Run sh file with absolute path to file
 
 ### Output
 
-Output will be placed in input file folder and looks like that:
+Output will be placed right next to input file and look like that:
 
 | File name | Purpose |
 | --- | --- |
-|out_filename | text after swaps |
-|rules_filename | rules of swapping |
+|out_{filename} | text after swaps |
+|rules_{filename} | rules of swapping |
 
 ## Example
 
